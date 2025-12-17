@@ -98,6 +98,9 @@ USE_TZ = True
 # Static files
 STATIC_URL = 'static/'
 
+# Add this line for production
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 # ==================== EMAIL CONFIGURATION ====================
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
