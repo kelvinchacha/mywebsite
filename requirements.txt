@@ -4,3 +4,5 @@ django-cors-headers==4.9.0
 djangorestframework==3.16.1
 python-decouple==3.8
 sqlparse==0.5.4
+whitenoise==6.6.0    # ⬅️ ADD HII LINE
+gunicorn==21.2.0     # ⬅️ ADD HII LINE

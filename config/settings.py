@@ -13,9 +13,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 SECRET_KEY = config('SECRET_KEY', default='django-insecure-f%jn9eh=qs%2#9@c1(-d_du^b71be_wbpy46w4kf@yc0iy_-p2')
 
-DEBUG = config('DEBUG', default=True, cast=bool)
+# ⚠️ MABADILIKO: Badilisha DEBUG kuwa False kwa production
+DEBUG = config('DEBUG', default=False, cast=bool)  # ILIKUWA True, SASA False
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1', cast=Csv())
+# ⚠️ MABADILIKO: Ongeza .onrender.com kwenye ALLOWED_HOSTS
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1,.onrender.com', cast=Csv())
 
 
 # Application definition
@@ -31,9 +33,11 @@ INSTALLED_APPS = [
     'contact_api',
 ]
 
+# ⚠️ MABADILIKO: Ongeza Whitenoise kwenye middleware
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # ⬅️ LINE MPYA
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -95,8 +99,12 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files
-STATIC_URL = 'static/'
+# ⚠️ MABADILIKO: Static files settings - MUHIMU SANA!
+STATIC_URL = '/static/'
+# ⚠️ ADD HII LINE: Inasaidia collectstatic kufanya kazi
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# ⚠️ ADD HII LINE: Inasaidia kuhifadhi static files vizuri
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 # ==================== EMAIL CONFIGURATION ====================
