@@ -1,4 +1,36 @@
+# Python/Django
 venv/
 .env
 db.sqlite3
 __pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Node.js/React
+node_modules/
+.cache/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.env.local
+.DS_Store
+dist/
+build/
+*.log
+*.tmp
+*.pid
+*.seed
+*.pid.lock
+*.tgz
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Static files
+staticfiles/
+media/
