@@ -224,7 +224,7 @@ section {
 
 
 body::after {
-  content: "© Kelvin Chacha | Confidential";
+  content: "© Kelvin Chacha";
   position: fixed;
   inset: 0;
   display: flex;
